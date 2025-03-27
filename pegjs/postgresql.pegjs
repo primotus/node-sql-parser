@@ -2911,7 +2911,7 @@ ident_name
       return start + parts.join('');
     }
 
-ident_start = [\$A-Za-z_]
+ident_start = [A-Za-z_] / "$" !([0-9]+ ![\$\.A-Za-z0-9_])
 
 ident_part  = [A-Za-z0-9_\-]
 

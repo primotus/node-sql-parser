@@ -21,7 +21,7 @@
   _exports.getExprListSQL = getExprListSQL;
   _exports.orderOrPartitionByToSQL = orderOrPartitionByToSQL;
   _exports.varToSQL = varToSQL;
-  const exprToSQLConvertFn = {
+  const exprToSQLConvertFn = _exports.exprToSQLConvertFn = {
     alter: _alter.alterExprToSQL,
     aggr_func: _aggregation.aggrToSQL,
     window_func: _window.windowFuncToSQL,
@@ -41,7 +41,6 @@
     struct: _arrayStruct.arrayStructExprToSQL,
     'window': _window.namedWindowExprListToSQL
   };
-  _exports.exprToSQLConvertFn = exprToSQLConvertFn;
   function varToSQL(expr) {
     const {
       prefix = '@',
